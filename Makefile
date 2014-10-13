@@ -30,9 +30,14 @@ $(OSXDEST): build/downloads/osx.zip
 	unzip -qo -d build/osx build/downloads/osx.zip
 	cp -R build/osx/node-webkit-v*-ia32/node-webkit.app $(OSXDEST)
 
-$(OSXFILE): $(OSXDEST)
+build/osx/app.icns:
+	which iconutil
+	iconutil --convert icns --output build/osx/app.icns app/app.iconset
+
+$(OSXFILE): $(OSXDEST) build/osx/app.icns
 	mkdir -p $(OSXFILE)
 	rm -rf $(OSXFILE)/node_modules 2> /dev/null; true
 	cp -R node_modules $(OSXFILE)/node_modules
 	cp -R app/* $(OSXFILE)/
 	rm -rf $(OSXFILE)/node_modules/nw-download
+	cp build/osx/app.icns $(OSXFILE)/../nw.icns
