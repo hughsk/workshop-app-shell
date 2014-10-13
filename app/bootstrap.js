@@ -27,6 +27,16 @@ require('@workshop/server')({
   iframe.style.margin = 0
   iframe.style.padding = 0
 
-  // Focuses the window when ready.
-  require('nw.gui').Window.get().show()
+  // General UI setup, make the window visible
+  // when complete
+  var gui = require('nw.gui')
+  var win = gui.Window.get()
+  var menu = new gui.Menu({ type: 'menubar' })
+
+  if (process.platform === 'darwin') {
+    menu.createMacBuiltin('workshop-app-shell')
+  }
+
+  win.menu = menu
+  win.show()
 })
