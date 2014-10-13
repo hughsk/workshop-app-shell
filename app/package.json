@@ -16,6 +16,7 @@
     "resizable": true,
     "frame": true,
     "width": 400,
-    "height": 300
+    "height": 300,
+    "show": false
   }
 }

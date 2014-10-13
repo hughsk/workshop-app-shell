@@ -26,4 +26,7 @@ require('@workshop/server')({
   iframe.style.border = 0
   iframe.style.margin = 0
   iframe.style.padding = 0
+
+  // Focuses the window when ready.
+  require('nw.gui').Window.get().show()
 })
