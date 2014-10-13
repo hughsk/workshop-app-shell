@@ -39,5 +39,6 @@ $(OSXFILE): $(OSXDEST) build/osx/app.icns
 	rm -rf $(OSXFILE)/node_modules 2> /dev/null; true
 	cp -R node_modules $(OSXFILE)/node_modules
 	cp -R app/* $(OSXFILE)/
+	mv $(OSXFILE)/Info.plist $(OSXDEST)/Contents/Info.plist
 	rm -rf $(OSXFILE)/node_modules/nw-download
 	cp build/osx/app.icns $(OSXFILE)/../nw.icns
