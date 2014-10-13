@@ -1,0 +1,21 @@
+{
+  "name": "workshop-app-shell",
+  "version": "1.0.0",
+  "description": "Boilerplate for frontend-focused NodeSchool lessons",
+  "main": "bootstrap.html",
+  "license": "MIT",
+  "author": "stack.gl contributors (http://stack.gl/)",
+  "contributors": [
+    "Mikola Lysenko",
+    "Hugh Kennedy <hughskennedy@gmail.com> (http://hughsk.io)"
+  ],
+  "single-instance": true,
+  "window": {
+    "title": "Workshop App Shell",
+    "toolbar": true,
+    "resizable": true,
+    "frame": true,
+    "width": 400,
+    "height": 300
+  }
+}
