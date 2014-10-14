@@ -9,7 +9,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@exercise/sample": "file:exercises/sample",
+    "@exercise/bare": "file:exercises/bare",
+    "@exercise/beefy": "file:exercises/beefy",
     "@workshop/menu": "file:workshop/menu",
     "@workshop/server": "file:workshop/server"
   },

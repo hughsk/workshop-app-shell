@@ -20,7 +20,6 @@ require('@workshop/server')({
     document.createElement('iframe')
   )
 
-  iframe.setAttribute('src', uri)
   iframe.style.position = 'absolute'
   iframe.style.top = 0
   iframe.style.left = 0
@@ -29,12 +28,15 @@ require('@workshop/server')({
   iframe.style.border = 0
   iframe.style.margin = 0
   iframe.style.padding = 0
+  iframe.onload = function() {
+    setTimeout(function() {
+      win.show()
+    })
+  }
 
   // General UI setup
   var gui = require('nw.gui')
   var win = gui.Window.get()
-
-  win.show()
 
   var menu = new gui.Menu({ type: 'menubar' })
   var submenu = new gui.Menu()
@@ -61,6 +63,5 @@ require('@workshop/server')({
   menu.append(list)
 
   win.menu = menu
-
-  console.log(menu)
+  iframe.src = uri
 })

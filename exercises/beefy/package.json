@@ -1,0 +1,9 @@
+{
+  "name": "@exercise/beefy",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "beefy": "^2.1.1",
+    "brfs": "^1.2.0"
+  }
+}
