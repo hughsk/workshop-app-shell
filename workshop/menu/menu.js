@@ -1,3 +1,4 @@
+var Exercise  = require('@workshop/exercise')
 var sidenote  = require('sidenote')
 var findup    = require('./findup')
 var exercises = require(findup(__dirname))
@@ -18,6 +19,8 @@ menu.element.style.margin = '2em'
 var keys = Object.keys(exercises)
 var lcat = null
 var cats = []
+var isComplete = '[COMPLETE]'
+var unComplete = '          '
 
 var rows = sidenote(keys.map(function(name, i) {
   var dir      = exercises[name]
@@ -32,9 +35,13 @@ var rows = sidenote(keys.map(function(name, i) {
 
   exercises[newname] = exercises[name]
 
-  return [ newname, '' ]
+  return [ newname, Exercise(dir).passed
+    ? isComplete
+    : unComplete
+  ]
 }), {
-  distance: 10
+    distance: 31
+  , character: ' '
 }).map(function(row, i) {
   // write new categories
   var cat = cats[i]
