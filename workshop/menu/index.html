@@ -5,9 +5,37 @@
       body {
         background: #34363B;
       }
+
+      #loading {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.4s;
+        opacity: 1;
+      }
+
+      .ready #loading {
+        opacity: 0;
+      }
+
+      .browser-terminal-menu {
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s;
+        transform: translate(-500px, 0);
+        opacity: 0;
+      }
+
+      .ready .browser-terminal-menu {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+
+      .ready.exiting .browser-terminal-menu {
+        opacity: 0;
+      }
     </style>
   </head>
   <body>
+    <img id="loading" src="loading.svg"/>
     <script charset="utf-8" src="menu.js"></script>
   </body>
 </html>

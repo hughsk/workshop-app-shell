@@ -49,8 +49,19 @@ var rows = sidenote(keys.map(function(name, i) {
   return row
 })
 
+var selected = false
+
 menu.on('select', function(_, i) {
   var label = keys[i]
   if (!exercises[label]) return console.error('exercise does not exist: '+label)
-  window.location = '/'+exercises[label]
+  if (selected) return; selected = true
+
+  document.body.classList.add('exiting')
+  setTimeout(function() {
+    window.location = '/'+exercises[label]
+  }, 350)
+})
+
+setTimeout(function() {
+  document.body.classList.add('ready')
 })
