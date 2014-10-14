@@ -42,3 +42,4 @@ $(OSXFILE): $(OSXDEST) build/osx/app.icns
 	mv $(OSXFILE)/Info.plist $(OSXDEST)/Contents/Info.plist
 	rm -rf $(OSXFILE)/node_modules/nw-download
 	cp build/osx/app.icns $(OSXFILE)/../nw.icns
+	cp exercises.json $(OSXFILE)/exercises.json

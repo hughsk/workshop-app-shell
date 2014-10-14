@@ -12,10 +12,11 @@
   "single-instance": true,
   "window": {
     "title": "Workshop App Shell",
-    "toolbar": true,
+    "toolbar": false,
     "resizable": true,
     "frame": true,
-    "width": 400,
+    "width": 500,
+    "min_width": 500,
     "height": 300,
     "show": false
   }

@@ -1,3 +1,6 @@
+var exercises = require('./exercises.json')
+var url       = require('url')
+
 process.env.PATH = [
     process.env.PATH
   , '/usr/local/bin'
@@ -27,16 +30,37 @@ require('@workshop/server')({
   iframe.style.margin = 0
   iframe.style.padding = 0
 
-  // General UI setup, make the window visible
-  // when complete
+  // General UI setup
   var gui = require('nw.gui')
   var win = gui.Window.get()
+
+  win.show()
+
   var menu = new gui.Menu({ type: 'menubar' })
+  var submenu = new gui.Menu()
+  var list = new gui.MenuItem({
+      label: 'Exercises'
+    , submenu: submenu
+  })
+
+  Object.keys(exercises).forEach(function(name) {
+    var src = url.resolve(uri, exercises[name])
+
+    submenu.append(new gui.MenuItem({
+        label: name
+      , click: function() {
+        iframe.src = src
+      }
+    }))
+  })
 
   if (process.platform === 'darwin') {
     menu.createMacBuiltin('workshop-app-shell')
   }
 
+  menu.append(list)
+
   win.menu = menu
-  win.show()
+
+  console.log(menu)
 })
