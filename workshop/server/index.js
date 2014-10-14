@@ -33,6 +33,9 @@ function createServer(config, done) {
     var pathname = url.parse(req.url).pathname
     var keys = Object.keys(handlers)
 
+    // Route exercises by their package names,
+    // e.g. the "@exercise/beefy" package can be found
+    // at "/@exercise/beefy".
     for (var i = 0; i < keys.length; i++) {
       var uri = keys[i]
       var idx = pathname.indexOf(uri)
@@ -51,6 +54,7 @@ function createServer(config, done) {
       return handlers[uri](req, res)
     }
 
+    // Fall back to the menu server.
     return menu(req, res)
   }
 }

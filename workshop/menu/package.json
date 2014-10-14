@@ -2,6 +2,7 @@
   "name": "@workshop/menu",
   "version": "1.0.0",
   "brstar": ["./findup"],
+  "main": "index.js",
   "browserify": {
     "transform": ["brstar"]
   },

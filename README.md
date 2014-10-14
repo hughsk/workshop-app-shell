@@ -41,3 +41,28 @@ npm start
 ``` bash
 make clean build
 ```
+
+## Writing a New Exercise
+
+In this project, each exercise is treated as an *independent* package, i.e. a
+directory with its own `package.json` file, dependencies and so on. You're also
+given almost full control with your exercise – it's essentially just a vanilla
+route handler. See the [`exercises`](exercises) directory for a few existing
+examples.
+
+The steps are as follows:
+
+1. Create a new directory in `exercises`. The name of this directory is not
+   important.
+1. Place a `package.json` file in there, with `main` pointing to `server.js` and
+   the `name` being `@exercise/my-exercise-name`. This name will be used across
+   the app to refer to the exercise in question (feel free to change that last
+   part as you wish).
+1. Copy `exercises/bare/server.js` into your new exercise directory.
+1. Add an entry to `exercises.json`, where the key should be the exercise name
+   as it appears on the menu and the value should be the same `name` property
+   used in your `package.json`.
+1. Run `npm install --save exercises/*` from the project root to update the
+   exercise dependencies.
+
+Next time you run the server you should be good to go!
